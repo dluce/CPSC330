@@ -2,8 +2,11 @@ USE S12-CPSC348_dluce;
 
 DROP TABLE IF EXISTS users_330;
 DROP TABLE IF EXISTS posts_330;
+DROP TABLE IF EXISTS subs;
+DROP TABLE IF EXISTS topics;
+DROP TABLE IF EXISTS profile;
 
---table of users
+-- table of users
 CREATE TABLE users_330 (
 	id INTEGER NOT NULL,
 	username VARCHAR(50),
@@ -11,34 +14,41 @@ CREATE TABLE users_330 (
 	PRIMARY KEY (id)
 );
 
---table of all posts made by users
+-- table of all posts made by users
 CREATE TABLE posts_330 (
 	
-	--the actual post
+	-- the actual post
 	content VARCHAR(140),
 	
-	--user who wrote the post
+	-- user who wrote the post
 	user_id INTEGER NOT NULL,
 	
-	--Whether or not a post is public; default is always public
+	-- Whether or not a post is public; default is always public
 	public_post BIT(1) DEFAULT 1,
 	
-	--When the post was first submitted to the website
+	-- When the post was first submitted to the website
 	time DATETIME NOT NULL,
 	
-	--defines what topic the post is made for
+	-- defines what topic the post is made for
 	topic_id INTEGER DEFAULT NULL,
 	
 	FOREIGN KEY (user_id) REFERENCES users_330(id)
 );
 
---table that represents users subscribed to other users
---through use of user.id's.
+CREATE TABLE profile (
+	id INTEGER NOT NULL,
+	gender CHAR(1),
+	rltnship ENUM('Single', 'Married', 'In a Relationship', 'Not Available'),
+	
+	FOREIGN KEY (id) REFERENCES users_330(id)
+);
+-- table that represents users subscribed to other users
+-- through use of user.id's.
 CREATE TABLE subs (
-	--original user
+	-- original user
 	user_o INTEGER NOT NULL,
 	
-	--user to which original user is subscribed
+	-- user to which original user is subscribed
 	user_s INTEGER NOT NULL,
 	
 	FOREIGN KEY (user_o) REFERENCES user_330(id),
@@ -47,6 +57,6 @@ CREATE TABLE subs (
 
 CREATE TABLE topics (
 	id INTEGER NOT NULL,
-	name VARCHAR(100),
+	name VARCHAR(100)
 );
 
