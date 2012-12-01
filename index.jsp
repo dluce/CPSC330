@@ -1,4 +1,4 @@
-<jsp:include page="/includes/header.jsp" />
+<jsp:include page="includes/header.jsp" />
 
 <div class="content">
     <div class="left-panel">
@@ -35,7 +35,8 @@
               <li><a href="index.html#">Link item 6<br>
                     </a></li>
             </ul>
-<!--							<h3>Blogroll</h3>
+<!--
+	    <h3>Blogroll</h3>
             <ul>
               <li><a href="#">Blogroll link 1<br>
                     </a></li>
@@ -61,4 +62,4 @@
     </div>
 </div>
 
-<jsp:include page="/includes/footer.jsp" />
+<jsp:include page="includes/footer.jsp" />

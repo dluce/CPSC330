@@ -57,8 +57,8 @@ CREATE TABLE subs (
 	-- subscribed user
 	s_user INTEGER NOT NULL,
 	
-	FOREIGN KEY (user_o) REFERENCES user_330(id),
-	FOREIGN KEY (user_s) REFERENCES user_330(id)
+	FOREIGN KEY (o_user) REFERENCES user_330(id),
+	FOREIGN KEY (s_user) REFERENCES user_330(id)
 );
 
 CREATE TABLE topics (
