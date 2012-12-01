@@ -23,13 +23,14 @@ CREATE TABLE posts_330 (
 	-- user who wrote the post
 	user_id INTEGER NOT NULL,
 	
-	-- Whether or not a post is public; default is always public
+	-- Whether or not a post is public; default is public
 	public_post BIT(1) DEFAULT 1,
 	
 	-- When the post was first submitted to the website
-	time DATETIME NOT NULL,
+	time TIMESTAMP NOT NULL,
 	
-	-- defines what topic the post is made for
+	-- defines what topic the post is made for, if any.
+	-- This is determined by server-side Java code.
 	topic_id INTEGER DEFAULT NULL,
 	
 	FOREIGN KEY (user_id) REFERENCES users_330(id)
@@ -40,16 +41,21 @@ CREATE TABLE profile (
 	gender CHAR(1),
 	rltnship ENUM('Single', 'Married', 'In a Relationship', 'Not Available'),
 	
+	-- Public profile by default, otherwise only viewable 
+	-- by subscribers
+	public_profile BIT(1) DEFAULT 1,
+	
 	FOREIGN KEY (id) REFERENCES users_330(id)
 );
+
 -- table that represents users subscribed to other users
--- through use of user.id's.
+-- through association of users_330(id)'s.
 CREATE TABLE subs (
 	-- original user
-	user_o INTEGER NOT NULL,
+	o_user INTEGER NOT NULL,
 	
-	-- user to which original user is subscribed
-	user_s INTEGER NOT NULL,
+	-- subscribed user
+	s_user INTEGER NOT NULL,
 	
 	FOREIGN KEY (user_o) REFERENCES user_330(id),
 	FOREIGN KEY (user_s) REFERENCES user_330(id)
@@ -57,6 +63,6 @@ CREATE TABLE subs (
 
 CREATE TABLE topics (
 	id INTEGER NOT NULL,
-	name VARCHAR(100)
+	title VARCHAR(100)
 );
 
