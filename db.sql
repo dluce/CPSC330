@@ -38,6 +38,9 @@ CREATE TABLE posts_330 (
 
 CREATE TABLE profile (
 	id INTEGER NOT NULL,
+	fname VARCHAR(50) DEFAULT NULL,
+	lname VARCHAR(50) DEFAULT NULL,
+	email VARCHAR(100) DEFAULT NULL,
 	gender CHAR(1),
 	rltnship ENUM('Single', 'Married', 'In a Relationship', 'Not Available'),
 	

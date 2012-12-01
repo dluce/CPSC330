@@ -5,13 +5,25 @@
         <div class="left-panel-in">
             <h2 class="title">Welcome to our site.</h2>
             <p>&nbsp;</p>
-            <p> Tweeter offers many functionalities, to be implemented later.</p>
-            <p>&nbsp;</p>
+            <p> Tweeter seeks to make messaging simple. Here, registered users may:</p>
+			<ul>
+				<li>Create a profile</li><br />
+				<li>Post and view messages</li><br />
+				<li>Subscribe to other user's messages</li><br />
+				<li>Other functionalities forthcoming</li><br />
+			</ul>
+			<p> Unregistered users may only browse and view public tweets. </p>
+<!--			<li></li><br />
+				<li></li><br />
+				<li></li><br />
+-->
+			<p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <h2 class="title">Recent Tweets<br>
             </h2>
             <p>&nbsp;</p>
+
             <p>Public Tweets displayed here when not logged in.</p>
         </div>
     </div>
