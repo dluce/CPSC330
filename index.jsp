@@ -1,5 +1,6 @@
-<jsp:include page="includes/header.jsp" />
+<%@page import="tweeter.Post" %>
 
+<jsp:include page="includes/header.jsp" />
 <div class="content">
     <div class="left-panel">
         <div class="left-panel-in">
@@ -18,7 +19,10 @@
 				<li></li><br />
 -->
 			<p>&nbsp;</p>
-            <p>&nbsp;</p>
+            <% Post post = new Post();
+		post.print();
+		%>
+	    <p>&nbsp;</p>
             <p>&nbsp;</p>
             <h2 class="title">Recent Tweets<br>
             </h2>
